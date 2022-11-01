@@ -1,16 +1,17 @@
 # variable definitions
-CXXFLAGS	+= -Wall -c -fomit-frame-pointer -std=c++0x -O3	\
-		  -fno-strict-aliasing -fno-stack-protector	-fPIC\
-		  -DBIGARRAY_MULTIPLIER=1 -DUSING_XED		\
-		  -DTARGET_IA32E -DHOST_IA32E -DTARGET_LINUX -g 
+CXXFLAGS	+= -Wall -c -fomit-frame-pointer -std=c++11 -O3 \
+		  -fno-strict-aliasing -fno-stack-protector	-fPIC \
+		  -DBIGARRAY_MULTIPLIER=1 -DUSING_XED \
+		  -DTARGET_IA32E -DHOST_IA32E -DTARGET_LINUX -g \
+		  -fabi-version=2 -D_GLIBCXX_USE_CXX11_ABI=0
 CXXFLAGS_SO	+= -Wl,--hash-style=sysv -Wl,-Bsymbolic	-shared \
 		   -Wl,--version-script=$(PIN_HOME)/source/include/pin/pintool.ver
-LIBS		+= -lpin  -lxed -ldwarf -lelf -ldl # -liberty
-H_INCLUDE	+= -I. -I$(PIN_HOME)/source/include/pin		\
-		   -I$(PIN_HOME)/source/include/pin/gen		\
-		   -I$(PIN_HOME)/extras/xed2-intel64/include	\
+LIBS		+= -lpin -lxed -lpindwarf -lelf -ldl # -liberty
+H_INCLUDE	+= -I. -I$(PIN_HOME)/source/include/pin \
+		   -I$(PIN_HOME)/source/include/pin/gen \
+		   -I$(PIN_HOME)/extras/xed-intel64/include	\
 		   -I$(PIN_HOME)/extras/components/include  
-L_INCLUDE	+= -L$(PIN_HOME)/extras/xed2-intel64/lib	\
+L_INCLUDE	+= -L$(PIN_HOME)/extras/xed-intel64/lib	\
 		-L$(PIN_HOME)/intel64/lib -L$(PIN_HOME)/intel64/lib-ext
 OBJS		= func_detect.o
 SOBJS		= $(OBJS:.o=.so)

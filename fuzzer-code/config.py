@@ -102,7 +102,7 @@ IMAGELOAD="imageOffset.txt"
 
 # this is the main command that is passed to run() function in runfuzzer.py
 
-PINCMD=[PINHOME,"-tool_exit_timeout", "1","-t", PINTOOL,"-o", BBOUT,"-x", "30","-libc","0","-l","#","-location","$","--"]
+PINCMD=[PINHOME, "-ifeellucky", "-tool_exit_timeout", "1","-t", PINTOOL,"-o", BBOUT,"-x", "30","-libc","0","-l","#","-location","$","--"]
 
 #PINTNTCMD=[PINHOME,"-follow_execv","-t", PINTNT,"-filename", "inputf","-stdout","0","--"]
 PINTNT2CMD=["./run_2.sh"]

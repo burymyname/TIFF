@@ -4,7 +4,7 @@ echo $2 $1
 cwd=$PWD
 cd ../libdft64/tools
 ./clean
-$PIN_HOME/pin.sh -t libdft-dta.so -filename $2 -maxoff 1 -x $3 -- $1
+$PIN_HOME/pin.sh -ifeellucky -t libdft-dta.so -filename $2 -maxoff 1 -x $3 -- $1
 python a.py
 cd $cwd
 cp ../libdft64/tools/cmp.out .

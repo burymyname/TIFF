@@ -69,11 +69,11 @@ def check_env():
     fd.close()
     if int(b) != 0:
         gau.die("Pintool may not work. Run: echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope")
-    if os.path.ismount(config.BASETMP)==False:
-        tmp=raw_input("It seems that config.BASETMP is not mounted as tmpfs filesystem. Making it a tmpfs may give you gain on execution speed. Press [Y/y] to mount it OR press [N/n] to continue.")
-        if tmp.upper() == "Y":
-            print "run: sudo mount -t tmpfs -o size=1024M tmpfs %s"%config.BASETMP
-            raise SystemExit(1)
+    # if os.path.ismount(config.BASETMP)==False:
+    #     tmp=raw_input("It seems that config.BASETMP is not mounted as tmpfs filesystem. Making it a tmpfs may give you gain on execution speed. Press [Y/y] to mount it OR press [N/n] to continue.")
+    #     if tmp.upper() == "Y":
+    #         print "run: sudo mount -t tmpfs -o size=1024M tmpfs %s"%config.BASETMP
+    #         raise SystemExit(1)
 
 
 def run(cmd):
@@ -587,7 +587,7 @@ def dry_run():
     print "[*] Starting dry run now..."
     tempbad=[]
     dfiles=os.listdir(config.INITIALD)
-    if len(dfiles) <3:
+    if len(dfiles) < 2:
         gau.die("not sufficient initial files")
 
     for fl in dfiles:

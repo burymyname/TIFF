@@ -4,7 +4,7 @@
 
 * ~~Installing EWAHBoolArray  https://github.com/lemire/EWAHBoolArray/ - To install it in your system just copy headers file(https://github.com/lemire/EWAHBoolArray/tree/master/headers) in /usr/include folder.~~
 
-* now we integration the **EWAHBoolArray** header file into the repo, just copy files in `headers` to `/usr/include`
+* Now we integrate the **EWAHBoolArray** header file into the repo, just copy files in `headers` to `/usr/include`
 
 * BitVector is also one of the dependencies of the project. It can be installed  using `pip install BitVector`
 
@@ -12,7 +12,7 @@
 
 * After generating the `.pkl` and `.names` files, copy them to the fuzzer-code/idafiles folder.
 
-* Please set the following env variables PIN_HOME and PIN_ROOT to the directory location of pin-2.13 
+* Please set the following env variables `PIN_HOME` and `PIN_ROOT` to the directory location of ~~pin-2.13~~ (we use pin 2.14 version instead of pin 2.13 bacause we can not found the 2.13 version.)
 
 * After this go to `func_detect`, and run `make`
 
@@ -31,13 +31,20 @@
   * `sudo mount -t tmpfs -o size=1024M tmpfs vutemp`
 
 ## Running Fuzzer ##
-* runfuzzer.py [-h] -s SUT -i INPUTD -w WEIGHT -n NAME [-l LIBNUM] -o
-                    OFFSETS [-b LIBNAME]
-For example, if we want to fuzz 'uniq' binary, following is the command:
-* python runfuzzer.py -s "<path_to_uniq_binary> %s" -i datatemp/uniq/ -w idafiles/uniq.pkl -n idafiles/uniq.names -l 1 -o "0x0000000000000000"
 
+* run `set_env.sh` to setup `PIN_ROOT` & `PIN_HOME` environment
+
+* `runfuzzer.py [-h] -s SUT -i INPUTD -w WEIGHT -n NAME [-l LIBNUM] -o OFFSETS [-b LIBNAME]`
+* For example, if we want to fuzz 'uniq' binary, following is the command:
+  ```
+  python runfuzzer.py -s "<path_to_uniq_binary> %s" -i datatemp/uniq/ -w idafiles/uniq.pkl -n idafiles/uniq.names -l 1 -o "0x0000000000000000"
+  ```
 ## Further information ##
+
 1. Check out README-dataSet.md to know more about the dataset used in evaluating TIFF and setting of configuration parameters.
+
 2. Check out (historic) wikiHOWTO.md to know more information about various parameters that have some impact on the fuzzer's performance.  
+
+
 ## Important Note ##
 The code is not cleaned properly yet, but it works! We will clean it in the near future. Currently, one of the lead authors is relocating to another country and other is engaged in his new job. As a result, we'll not be in a position to address issues immediately, but we'll try our best to work on them when time permits. Please don't shoot us!

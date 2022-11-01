@@ -74,3 +74,4 @@ LIB_ROOTS :=
 # This section contains the build rules for all binaries that have special build rules.
 # See makefile.default.rules for the default build rules.
 
+TOOL_CXXFLAGS += -std=c++11 -fabi-version=2 -D_GLIBCXX_USE_CXX11_ABI=0
