@@ -12,7 +12,7 @@ tools/*.taint
 fuzzer-code/*.json
 fuzzer-code/*.taint
 fuzzer-code/crash.bin
-pin-*
+#pin-*
 fuzzer-code/data
 fuzzer-code/outd
 fuzzer-code/inter
