@@ -12,15 +12,14 @@ tools/*.taint
 fuzzer-code/*.json
 fuzzer-code/*.taint
 fuzzer-code/crash.bin
-#pin-*
+# pin-*
 fuzzer-code/data
 fuzzer-code/outd
 fuzzer-code/inter
 fuzzer-code/special
 fuzzer-code/keep
-fuzzer-code/idafiles
+# fuzzer-code/idafiles
 fuzzer-code/crash.bin
-fuzzer-code/idafiles
 fuzzer-code/image.offset
 fuzzer-code/imageOffset.txt
 fuzzer-code/stats.log.*
